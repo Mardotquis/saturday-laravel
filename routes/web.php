@@ -31,3 +31,11 @@ First, we should add names to the Routes. It's a good practice: when using names
 // });
 
 Route::view('/second', 'second');
+
+
+// `postId` is a parameter passed to the show() func inside the Post controller
+// Route::get('posts/{postId}', [\App\Http\Controllers\PostController::class, 'show'])->name('post.show');
+
+// better solution: Route Model Binding
+//`post` is passed as an object
+Route::get('posts/{post}', [\App\Http\Controllers\PostController::class, 'show'])->name('post.show');
